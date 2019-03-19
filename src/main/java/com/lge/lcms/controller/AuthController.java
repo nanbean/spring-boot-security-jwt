@@ -62,10 +62,6 @@ public class AuthController {
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
-        System.out.printf("11111111111111111111111111111111111111111111111111111111");
-
-        System.out.printf(signUpRequest.getName());
-
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return new ResponseEntity(new ApiResponse(false, "Username is already taken!"), HttpStatus.BAD_REQUEST);
         }
@@ -78,20 +74,12 @@ public class AuthController {
         User user = new User(signUpRequest.getName(), signUpRequest.getUsername(), signUpRequest.getEmail(),
                 signUpRequest.getPassword());
 
-        System.out.printf("22222222222222222222222222222222222222222");
-
-        System.out.printf(user.getName());
-
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         Role userRole = roleRepository.findByName(RoleName.ROLE_USER)
                 .orElseThrow(() -> new AppException("User Role not set."));
 
         user.setRoles(Collections.singleton(userRole));
-
-        System.out.printf("22222222222222222222222222222222222222222");
-
-        System.out.printf(user.getName());
 
         User result = userRepository.save(user);
 
