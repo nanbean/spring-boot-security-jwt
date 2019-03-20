@@ -1,0 +1,128 @@
+{
+    "$schema": "http://json-schema.org/draft-04/hyper-schema",
+    "title": "User",
+    "description": "An user represents an individual signed up to use the LCMS platform.",
+    "stability": "prototype",
+    "strictProperties": true,
+    "type": [
+        "object"
+    ],
+    "definitions": {
+        "id": {
+            "description": "unique identifier of user",
+            "readOnly": true,
+            "format": "uuid",
+            "type": [
+                "string"
+            ]
+        },
+        "username": {
+            "description": "unique username of user",
+            "readOnly": true,
+            "type": [
+                "string"
+            ]
+        },
+        "email": {
+            "description": "unique email of user",
+            "readOnly": true,
+            "type": [
+                "string"
+            ]
+        },
+        "identity": {
+            "anyOf": [
+                {
+                    "$ref": "/schemata/user#/definitions/id"
+                },
+                {
+                    "$ref": "/schemata/user#/definitions/username"
+                }
+            ]
+        },
+        "name": {
+            "description": "full name of user",
+            "readOnly": true,
+            "type": [
+                "string"
+            ]
+        },
+        "created_at": {
+            "description": "when user was created",
+            "format": "date-time",
+            "type": [
+                "string"
+            ]
+        },
+        "updated_at": {
+            "description": "when user was updated",
+            "format": "date-time",
+            "type": [
+                "string"
+            ]
+        }
+    },
+    "links": [
+        {
+            "description": "Create a new user.",
+            "href": "/users",
+            "method": "POST",
+            "rel": "create",
+            "schema": {
+                "properties": {},
+                "type": [
+                    "object"
+                ]
+            },
+            "title": "Create"
+        },
+        {
+            "description": "Delete an existing user.",
+            "href": "/users/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}",
+            "method": "DELETE",
+            "rel": "destroy",
+            "title": "Delete"
+        },
+        {
+            "description": "List existing users.",
+            "href": "/users",
+            "method": "GET",
+            "rel": "instances",
+            "title": "List"
+        },
+        {
+            "description": "Update an existing user.",
+            "href": "/users/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}",
+            "method": "PATCH",
+            "rel": "update",
+            "schema": {
+                "properties": {},
+                "type": [
+                    "object"
+                ]
+            },
+            "title": "Update"
+        }
+    ],
+    "properties": {
+        "created_at": {
+            "$ref": "/schemata/user#/definitions/created_at"
+        },
+        "id": {
+            "$ref": "/schemata/user#/definitions/id"
+        },
+        "username": {
+            "$ref": "/schemata/user#/definitions/username"
+        },
+        "name": {
+            "$ref": "/schemata/user#/definitions/name"
+        },
+        "email": {
+            "$ref": "/schemata/user#/definitions/email"
+        },
+        "updated_at": {
+            "$ref": "/schemata/user#/definitions/updated_at"
+        }
+    },
+    "id": "user"
+}

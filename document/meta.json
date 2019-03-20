@@ -1,0 +1,11 @@
+{
+    "description": "LCMS prmd API",
+    "id": "lcms-prmd",
+    "links": [
+        {
+            "href": "https://lcms.lge.com/api",
+            "rel": "self"
+        }
+    ],
+    "title": "LCMS Prmd"
+}
