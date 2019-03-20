@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-04/hyper-schema",
     "title": "User",
-    "description": "An user represents an individual signed up to use the LCMS platform.",
+    "description": "AAn user represents an individual signed up to use the LCMS platform.",
     "stability": "prototype",
     "strictProperties": true,
     "type": [
@@ -47,14 +47,14 @@
                 "string"
             ]
         },
-        "created_at": {
+        "createdAt": {
             "description": "when user was created",
             "format": "date-time",
             "type": [
                 "string"
             ]
         },
-        "updated_at": {
+        "updatedAt": {
             "description": "when user was updated",
             "format": "date-time",
             "type": [
@@ -84,6 +84,13 @@
             "title": "Delete"
         },
         {
+            "description": "Info for existing user.",
+            "href": "/users/{(%2Fschemata%2Fuser%23%2Fdefinitions%2Fidentity)}",
+            "method": "GET",
+            "rel": "self",
+            "title": "Info"
+        },
+        {
             "description": "List existing users.",
             "href": "/users",
             "method": "GET",
@@ -105,8 +112,8 @@
         }
     ],
     "properties": {
-        "created_at": {
-            "$ref": "/schemata/user#/definitions/created_at"
+        "createdAt": {
+            "$ref": "/schemata/user#/definitions/createdAt"
         },
         "id": {
             "$ref": "/schemata/user#/definitions/id"
@@ -120,8 +127,8 @@
         "email": {
             "$ref": "/schemata/user#/definitions/email"
         },
-        "updated_at": {
-            "$ref": "/schemata/user#/definitions/updated_at"
+        "updatedAt": {
+            "$ref": "/schemata/user#/definitions/updatedAt"
         }
     },
     "id": "user"
